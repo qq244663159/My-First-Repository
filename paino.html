@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>Document</title>
+	<style>
+		#container{
+			margin: 200px auto 0 auto;
+			width: 900px;
+			height: 110px;
+
+		}
+		input{
+			width: 100px;
+			height: 100px;
+			font-size: 50px;
+			font-family: arial;
+			font-weight: 900;
+			text-transform: Uppercase;
+			
+
+		}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<input type="button" value="a">
+		<input type="button" value="s">
+		<input type="button" value="d">
+		<input type="button" value="f">
+		<input type="button" value="g">
+		<input type="button" value="h">
+		<input type="button" value="j">
+	</div>
+
+
+
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/touch.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			
+			
+				$(window).keydown(function(e){
+					var num = [
+						{key : "A" , src : "yinjie/01.mp3"},
+						{key : "S" , src : "yinjie/02.mp3"},
+						{key : "D" , src : "yinjie/03.mp3"},
+						{key : "F" , src : "yinjie/04.mp3"},
+						{key : "G" , src : "yinjie/05.mp3"},
+						{key : "H" , src : "yinjie/06.mp3"},
+						{key : "J" , src : "yinjie/07.mp3"}
+						]
+					for(var i = 0 ; i < num.length ; i++){
+						var AUDIO = new Audio();
+						var keyChar = String.fromCharCode(event.keyCode);
+						if(num[i].key == keyChar){
+			  			AUDIO.src = num[i].src;
+			  			AUDIO.play();
+			  			}
+					}
+				});
+
+				$("input").on("tap" , function(){
+                 console.log(111111)
+					var num = [
+						{cls : "0" , src : "yinjie/01.mp3"},
+						{cls : "1" , src : "yinjie/02.mp3"},
+						{cls : "2" , src : "yinjie/03.mp3"},
+						{cls : "3" , src : "yinjie/04.mp3"},
+						{cls : "4" , src : "yinjie/05.mp3"},
+						{cls : "5" , src : "yinjie/06.mp3"},
+						{cls : "6" , src : "yinjie/07.mp3"}
+						]
+
+					for(var i = 0 ; i < num.length ; i++){
+						var AUDIO = new Audio();
+						var ind = $('input').index($(this));
+						if(num[i].cls == ind){
+							console.log(num[i].src)
+				  			AUDIO.src = num[i].src;
+				  			AUDIO.play();
+			  			}
+					}
+				})
+			  		
+			    
+		
+				
+
+			
+			
+
+
+			// $("input").keydown(function(e){
+			// 	var ind = $(this).index();
+			// 	console.log(ind)
+			// 	var AUDIO = new Audio;
+			// 	var musicSrc = "yinjie/0" + ind + ".mp3";
+			// 	AUDIO.src = musicSrc;
+			// 	var start = 30;
+			// 	start++
+			// 	if(e.keyCode == start){
+			//     	AUDIO.play();
+			//     }
+			// })
+			
+
+			$(window).keydown(function(e){
+			  
+			    if(e.keyCode == 81){
+			    	AUDIO.play();
+			    }
+			  
+			});
+		})
+
+	</script>
+</body>
+</html>
